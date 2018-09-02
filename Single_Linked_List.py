@@ -33,16 +33,41 @@ class linked_list:
             elements.append(cur.data)
         return elements
 
+    def get(self, index):
+        if index >= self.length(): return "ERROR : index out of range!"
+        idx = 0
+        cur = self.head
+        while cur.next != None:
+            cur = cur.next
+            if idx == index: return cur.data
+            idx += 1
+
+    def delete(self, index):
+        if index >= self.length(): return "ERROR : index out of range!"
+        idx = 0
+        cur_node = self.head
+        while cur.next != None:
+            last_node = cur_node
+            cur_node = cur.next
+            if idx == index:
+                last_node.next = cur_node.next
+                return "Node Deleted"
+            idx += 1
+            
+
+
+
 
 #--- main ---
-
 mylist = linked_list()
 while True:
        print ("SINGLY LINKED LIST OPERATIONS")
        print ("1. Add")
        print ("2. Length")
-       print ("3. Traverse")
-       print ("4. Exit")
+       print ("3. Get")
+       print ("4. Traverse")
+       print ("5. Delete")
+       print ("6. Exit")
        ch=int(input("\nEnter your choice :: "))
        if ch==1:
               data=input("Enter Data :")
@@ -52,11 +77,17 @@ while True:
               length = mylist.length()
               print ("*** Length =  ",length," ***")
        elif ch==3:
+              index = int(input("Enter Index : "))
+              print ("*** Output =  ",mylist.get(index)," ***")
+       elif ch==4:
               nodes=mylist.display()
               print("Linked List - > " , end="")
               for node in nodes:
                   print(node,end=", ")
-       elif ch==4:
+       elif ch==5:
+              index = int(input("Enter Index : "))
+              print ("*** Output =  ",mylist.delete(index)," ***")
+       elif ch==6:
               break
        else:
               print ("\tInvalid Choice!!!")
