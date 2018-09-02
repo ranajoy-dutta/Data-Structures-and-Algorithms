@@ -12,16 +12,15 @@ class linked_list:
     def append(self, data):
         new_node = node(data)   # New Node Data
         cur = self.head         # initialising current node to head node
-        while cur.next != None: # finding last node
-            cur = cur.next
-            
+        while cur.next != None: # check for last node
+            cur = cur.next      # pointing to next node
         cur.next = new_node     # setting last node pointer to new node
          
     def length(self):
         cur = self.head
         total = 0
         while cur.next != None:
-            total += 1
+            total += 1          # Counter
             cur = cur.next
         return total
 
@@ -30,7 +29,7 @@ class linked_list:
         cur = self.head
         while cur.next != None:
             cur = cur.next
-            elements.append(cur.data)
+            elements.append(cur.data)   # storing the node data in a list
         return elements
 
     def get(self, index):
