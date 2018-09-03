@@ -15,5 +15,13 @@ def binarySearch(arr, num):
             return False
 
 
+# --- main ---
+array = list(map(int,input("Enter space separated values : ").split()))
+element = int(input("Enter the element to find : "))
+index = binarySearch(array, element)
+if index:
+    print("Element found at position : ",index+1)
+else:
+    print("Element not found!")
 
             
